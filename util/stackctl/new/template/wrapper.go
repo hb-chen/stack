@@ -8,6 +8,8 @@ import (
 
 	"github.com/stack-labs/stack-rpc"
 	"github.com/stack-labs/stack-rpc/server"
+
+	// FIXME: replace with service proto path
 	{{.Alias}} "path/to/service/proto/{{.Alias}}"
 )
 
@@ -21,6 +23,7 @@ func {{title .Alias}}FromContext(ctx context.Context) ({{.Alias}}.{{title .Alias
 
 // Client returns a wrapper for the {{title .Alias}}Client
 func {{title .Alias}}Wrapper(service stack.Service) server.HandlerWrapper {
+	// FIXME: replace "stack.rpc.service.{{.Alias}}" with service name
 	client := {{.Alias}}.New{{title .Alias}}Service("stack.rpc.service.{{.Alias}}", service.Client())
 
 	return func(fn server.HandlerFunc) server.HandlerFunc {

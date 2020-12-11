@@ -5,7 +5,7 @@ var (
 
 package {{.FQDN}};
 
-option go_package = "{{.Dir}}/proto/{{.Alias}}";
+option go_package = "proto/{{.Alias}}";
 
 service {{title .Alias}} {
 	rpc Call(Request) returns (Response) {}

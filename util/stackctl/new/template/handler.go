@@ -6,6 +6,8 @@ var (
 import (
 	"context"
 
+	log "github.com/stack-labs/stack-rpc/logger"
+
 	{{.Alias}} "{{.Dir}}/proto/{{.Alias}}"
 )
 
@@ -13,6 +15,7 @@ type {{title .Alias}} struct{}
 
 // Call is a single request handler called via client.Call or the generated client code
 func (e *{{title .Alias}}) Call(ctx context.Context, req *{{.Alias}}.Request, rsp *{{.Alias}}.Response) error {
+	log.Info("Received {{title .Alias}}.Call request")
 	rsp.Msg = "Hello " + req.Name
 	return nil
 }
@@ -113,11 +116,13 @@ func Handler(ctx context.Context, msg *{{.Alias}}.Message) error {
 import (
 	"context"
 	"encoding/json"
+
+	api "github.com/stack-labs/stack-rpc/api/proto"
+	"github.com/stack-labs/stack-rpc/errors"
 	log "github.com/stack-labs/stack-rpc/logger"
 
 	"{{.Dir}}/client"
-	"github.com/stack-labs/stack-rpc/errors"
-	api "github.com/stack-labs/stack-rpc/api/proto"
+	// FIXME: replace with service proto path
 	{{.Alias}} "path/to/service/proto/{{.Alias}}"
 )
 

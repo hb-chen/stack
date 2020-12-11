@@ -257,7 +257,8 @@ func run(ctx *cli.Context) {
 				"go get -u github.com/stack-lags/stack-rpc/util/protoc-gen-stack",
 				"\ncompile the proto file " + alias + ".proto:\n",
 				"cd " + goDir,
-				"protoc --proto_path=.:$GOPATH/src --go_out=. --stack_out=. proto/" + alias + "/" + alias + ".proto\n",
+				//"protoc --proto_path=.:$GOPATH/src --go_out=. --stack_out=. proto/" + alias + "/" + alias + ".proto\n",
+				"make proto",
 			},
 		}
 	case "service":
@@ -293,7 +294,8 @@ func run(ctx *cli.Context) {
 				"go get -u github.com/stack-labs/stack-rpc/util/protoc-gen-stack",
 				"\ncompile the proto file " + alias + ".proto:\n",
 				"cd " + goDir,
-				"protoc --proto_path=.:$GOPATH/src --go_out=. --stack_out=. proto/" + alias + "/" + alias + ".proto\n",
+				//"protoc --proto_path=.:$GOPATH/src --go_out=. --stack_out=. proto/" + alias + "/" + alias + ".proto\n",
+				"make proto",
 			},
 		}
 	case "api":
@@ -329,10 +331,15 @@ func run(ctx *cli.Context) {
 				"go get -u github.com/stack-labs/stack-rpc/util/protoc-gen-stack",
 				"\ncompile the proto file " + alias + ".proto:\n",
 				"cd " + goDir,
-				"protoc --proto_path=.:$GOPATH/src --go_out=. --stack_out=. proto/" + alias + "/" + alias + ".proto\n",
+				//"protoc --proto_path=.:$GOPATH/src --go_out=. --stack_out=. proto/" + alias + "/" + alias + ".proto\n",
+				"make proto",
 			},
 		}
 	case "web":
+		// TODO web service need redesign
+		fmt.Println("TODO web service unsupported")
+		return
+
 		// create service config
 		c = config{
 			Alias:     alias,

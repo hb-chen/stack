@@ -1,5 +1,14 @@
 # stackctl
 
+## install
+
+- release binary
+    - [releases](https://github.com/stack-labs/stack-rpc/releases)
+- go get
+    - `go get -u github.com/stack-labs/stack-rpc/util/istioctl`
+
+## example
+
 - 创建`service`
 
 ```shell script
@@ -12,7 +21,8 @@ stackctl new github.com/stack-labs/example --alias example -type service --gopat
 stackctl new github.com/stack-labs/example-api --alias example -type api --gopath
 ```
 
-- 替换`example-api`中`path/to/service/proto/example`为`github.com/stack-labs/example/proto/example`
+- 修改 FIXME 内容
+    - 替换`example-api`中`path/to/service/proto/example`为`github.com/stack-labs/example/proto/example`
 - 本地环境用`go.mod`用`replace`添加`github.com/stack-labs/example`包
 
 ```shell script

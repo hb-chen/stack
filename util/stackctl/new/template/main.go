@@ -103,9 +103,11 @@ func main() {
 	MainWEB = `package main
 
 import (
+		"net/http"
+
         log "github.com/stack-labs/stack-rpc/logger"
-	      "net/http"
         "github.com/stack-labs/stack-rpc/web"
+
         "{{.Dir}}/handler"
 )
 
